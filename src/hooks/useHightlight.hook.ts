@@ -43,7 +43,7 @@ export function useHightlight() {
     const len = pattern.length
     return `
           ${text.slice(0, pos)}
-          <span style="background-color: yellow">
+          <span style="color: rgb(65, 255, 202)">
           ${text.slice(pos, pos + len)}</span>
           ${highlight(text.slice(pos + len), pattern)}
          `
