@@ -38,11 +38,11 @@ function mouseEnterHandler(idx:number) {
   emit('choose', htmls.value[idx])
 }
 function choose(idx:number) {
-  console.log('dfdfdfdf,enter')
   chooseFlag.value = true
   inputValue.value = htmls.value[idx]
   list.value = []
   htmls.value = []
+  currentIdx.value = 0
 }
 document.addEventListener('keydown', (event) => {
   switch (event.keyCode) {
@@ -63,6 +63,7 @@ function upArrow() {
   if(currentIdx.value > 2 && list.value.length > 6) {
     container.value!.scrollTop -= 60
   }
+  mouseEnterHandler(currentIdx.value)
 }
 function downArrow() {
   if(currentIdx.value >= list.value.length - 1) return 
@@ -70,6 +71,7 @@ function downArrow() {
   if(currentIdx.value > 5 && list.value.length > 6) {
     container.value!.scrollTop += 60
   }
+  mouseEnterHandler(currentIdx.value)
 }
 </script>
 
