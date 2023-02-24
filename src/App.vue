@@ -2,16 +2,23 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { generator } from 'unocss-reverse'
+import  Search  from './components/Search.vue'
+import {searchData} from './assets/data'
 const message = ref('')
 const transform = computed(() => {
    return generator(message.value)
 })
+const userChoose = (item:string) => {
+   message.value = item
+}
 </script>
 
 <template>
    <div w="100%" h="100%" flex justify-center items-center flex-col p="y-10">
-      <input v-model="message" class="!outline-none" w="40%" text-4 placeholder="输入css值，如:width:100rem..." type="text"
-         autocomplete="off" p="x6 y4" />
+      <Search 
+         :data="searchData" 
+         @choose="userChoose">
+      </Search>
       <div v-if="transform">
          <h2>结果：</h2>
          <div>{{ transform }}</div>
