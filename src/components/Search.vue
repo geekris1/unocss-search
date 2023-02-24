@@ -29,8 +29,7 @@ function inputHandler(e: string): void {
       list.value.push(highlight(text, pattern))
     }
   })
-  if (list.value.length === 0)
-    emit('choose', inputValue.value)
+  emit('choose', inputValue.value)
 }
 
 let currentIdx = ref(-1)
